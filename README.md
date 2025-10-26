@@ -5,7 +5,7 @@ A Minimal AMD SVM-Based Type-2 Hypervisor
 
 ## Overview  
 **TypeTwo-Core** is an educational **Type-2 (hosted) hypervisor** built from scratch using **AMD’s Secure Virtual Machine (SVM)** extensions.  
-The goal of this project is to gain a hands-on understanding of **virtualization internals**, **CPU state management**, and **world switching** on x86-64 platforms — without relying on existing hypervisor frameworks like KVM or VirtualBox.  
+The goal of this project is to gain a hands-on understanding of **virtualization internals**, **CPU state management**, and **world switching** on x86-64 platforms without relying on existing hypervisor frameworks like KVM or VirtualBox.  
 
 TypeTwo-Core is written primarily in **C/C++** with minimal inline Assembly and currently runs as a Windows driver for learning and experimentation purposes.  
 
@@ -18,6 +18,7 @@ As of now, **TypeTwo-Core** performs:
 - Basic **World Switching** between Host and Guest  
 - Handling of fundamental **intercepts** (e.g., `HLT`, `VMMCALL`)  
 - Logging and debugging of **guest state transitions**
+- Added **VMEXIT handlers**
 
 However, the project currently contains a **known bug** that can cause **system instability and crashes** after the first world switch. Debugging efforts are ongoing to isolate and resolve the issue.  
 
@@ -39,7 +40,7 @@ However, the project currently contains a **known bug** that can cause **system 
 ## Future Roadmap  
 - [ ] Fix current instability and ensure reliable guest transitions  
 - [ ] Implement **Nested Paging (NPT)** for virtual address translation  
-- [ ] Add **VMEXIT handlers** for common intercepts (I/O, CPUID, MSR, etc.)  
+- [ ] Enhance / Modify current **VMEXIT handlers** for common intercepts (I/O, CPUID, MSR, etc.)  
 - [ ] Build a minimal **Guest OS boot sequence**  
 - [ ] Introduce a **lightweight CLI debugger** for monitoring guest state  
 - [ ] Expand documentation for educational use  
@@ -47,7 +48,7 @@ However, the project currently contains a **known bug** that can cause **system 
 ---
 
 ## Educational Intent  
-This project is designed purely for **educational and research purposes** — to explore the inner workings of AMD’s virtualization stack, system-level programming, and hardware interaction. It’s not production-ready, nor is it intended for deployment on critical systems.  
+This project is designed purely for **educational and research purposes**, to explore the inner workings of AMD’s virtualization stack, system-level programming, and hardware interaction. It’s not production-ready, nor is it intended for deployment on critical systems.  
 
 ---
 
